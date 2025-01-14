@@ -31,6 +31,7 @@ function LandingPage() {
     <div className="landing-page">
       <header className="header scroll-animate" ref={(el) => 
         elementsRef.current.push(el)}>
+        <a href="https://hasamitra.com" target="_blank" rel="noopener noreferrer" className="clickable-area"></a>
         <img src="header-icon.png" alt="Hasamitra Logo" className="logo" />
       </header>
       <section className="title scroll-animate" ref={(el) => 
