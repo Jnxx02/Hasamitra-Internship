@@ -55,8 +55,9 @@
 }
 
 .feature-image {
-  width: 85%;
-  height: auto;
+  width: 80%;
+  max-width: 5000px;
+  height: auto !important;
   margin-top: 10px;
 }
 
@@ -67,7 +68,7 @@
 }
 
 .benefit-image {
-  width: 70%;
+  width: 85%;
   height: auto;
 }
 
@@ -151,11 +152,11 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-top: 100px;
   }
 
   .feature-image {
-    width: 45%;
-    max-width: 5000px;
+    max-width: 600px !important;
     height: auto;
   }
 
@@ -172,4 +173,77 @@
     width: 100%;
     max-width: none;
   }
+}
+
+.benefits h3,
+.requirements h3,
+.footer h3 {
+    color: #dc7c34;
+    font-size: 2rem;
+}
+
+.benefits h3,
+.requirements h3,
+.tabungan-text {
+  padding-left: 20px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.image-animate {
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.image-animate-delay-1 {
+  animation-delay: 0.5s;
+}
+
+.image-animate-delay-2 {
+  animation-delay: 1s;
+}
+
+.image-animate-delay-3 {
+  animation-delay: 1.5s;
+}
+
+.image-animate-delay-4 {
+  animation-delay: 2s;
+}
+
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.scroll-animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.benefits h3,
+.requirements h3 {
+    color: #dc7c34;
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.benefits ul,
+.requirements ul {
+    margin-top: 0;
+    padding-left: 40px;
+}
+
+.tabungan-text {
+    padding-left: 40px;
 }
