@@ -67,6 +67,12 @@ function LandingPage() {
     window.open(whatsappUrl, '_blank');
   };
 
+  const closeForm = () => {
+    const formElement = document.querySelector('.form-popup');
+    formElement.classList.add('hide');
+    setTimeout(() => setShowForm(false), 300);
+  };
+
   return (
     <div className="landing-page">
       <header className="header scroll-animate" ref={(el) =>
@@ -182,7 +188,7 @@ function LandingPage() {
               />
             </label>
             <button type="submit">Daftar Sekarang</button>
-            <button type="button" onClick={() => setShowForm(false)}>
+            <button type="button" onClick={closeForm}>
               <i className="fas fa-times"></i>
             </button>
           </form>
