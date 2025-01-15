@@ -27,13 +27,14 @@ function LandingPage() {
     };
   }, []);
 
-  const whatsappTemplateMessage = "Halo Hasamitra, saya ingin membuat tabungan baru. Nama: [Nama Anda], ID: [ID Anda]";
+  const whatsappTemplateMessage = "Halo Hasamitra, saya ingin bergabung dengan Tabungan New Ariska.";
 
   return (
     <div className="landing-page">
       <header className="header scroll-animate" ref={(el) => 
         elementsRef.current.push(el)}>
-        <a href="https://hasamitra.com" target="_blank" rel="noopener noreferrer" className="clickable-area"></a>
+        <a href="https://hasamitra.com" target="_blank" rel="noopener noreferrer" 
+        className="clickable-area"></a>
         <img src="header-icon.png" alt="Hasamitra Logo" className="logo" />
       </header>
       <section className="title scroll-animate" ref={(el) => 
@@ -63,34 +64,34 @@ function LandingPage() {
               elementsRef.current.push(el)}>
               <h3>Keuntungan</h3>
               <ul>
-                <li>Penghitungan bunga berdasarkan saldo harian</li>
-                <li>Bebas biaya administrasi bulanan</li>
+                <li>Penghitungan bunga berdasarkan saldo harian.</li>
+                <li>Bebas biaya administrasi bulanan.</li>
                 <li>Nasabah yang memenangkan nomor arisan pada acara penarikan arisan
                      diberikan hadiah berupa uang tunai sebesar Rp 500.000,- dan 
-                     dikreditkan langsung ke nomor rekening pendebetan</li>
+                     dikreditkan langsung ke nomor rekening pendebetan.</li>
                 <li>Setiap nasabah yang memenangkan nomor arisan, secara otomatis 
                     dinyatakan keluar dari kepesertaan arisan dan berhak untuk
-                     menarik seluruh tabungannya</li>
+                     menarik seluruh tabungannya.</li>
               </ul>
             </section>
             <section className="requirements scroll-animate" id="requirements" 
             ref={(el) => elementsRef.current.push(el)}>
               <h3>Persyaratan</h3>
               <ul>
-                <li>Memiliki tabungan Si Mitra</li>
+                <li>Memiliki tabungan Si Mitra.</li>
                 <li>Mengisi dan menandatangani formulir data nasabah dan/atau 
-                    formulir permohonan pembukaan rekening</li>
+                    formulir permohonan pembukaan rekening.</li>
                 <li>Melengkapi dokumen persyaratan antara lain:</li>
                 <ul>
-                  <li>Fotocopy kartu identitas (KTP/SIM/Paspor)</li>
-                  <li>Fotocopy NPWP (jika ada)</li>
-                  <li>Dokumen lainnya</li>
+                  <li>Fotocopy kartu identitas (KTP/SIM/Paspor),</li>
+                  <li>Fotocopy NPWP (jika ada),</li>
+                  <li>Dokumen lainnya.</li>
                 </ul>
-                <li>Menandatangani kuasa pendebetan rekening</li>
+                <li>Menandatangani kuasa pendebetan rekening.</li>
               </ul>
               <a href={`https://api.whatsapp.com/send?phone=6281371200097&text=${encodeURIComponent(whatsappTemplateMessage)}`} 
                  target="_blank" rel="noopener noreferrer">
-                <button className="register-button">Daftar Sekarang</button>
+                <button className="register-button">Raih Keuntungan</button>
               </a>
             </section>
           </div>
