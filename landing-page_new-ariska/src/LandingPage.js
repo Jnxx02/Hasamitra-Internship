@@ -182,7 +182,9 @@ function LandingPage() {
               />
             </label>
             <button type="submit">Daftar Sekarang</button>
-            <button type="button" onClick={() => setShowForm(false)}>Tutup</button>
+            <button type="button" onClick={() => setShowForm(false)}>
+              <i className="fas fa-times"></i>
+            </button>
           </form>
         </div>
       )}
