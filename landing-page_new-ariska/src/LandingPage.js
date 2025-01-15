@@ -1,8 +1,14 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './LandingPage.css';
 
 function LandingPage() {
   const elementsRef = useRef([]);
+  const [showForm, setShowForm] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+  });
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -28,6 +34,18 @@ function LandingPage() {
   }, []);
 
   const whatsappTemplateMessage = "Halo Hasamitra, saya ingin bergabung dengan Tabungan New Ariska.";
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const message = `Nama: ${formData.name}, Email: ${formData.email}, Nomor Telepon: ${formData.phone}`;
+    const whatsappUrl = `https://wa.me/yourphonenumber?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
 
   return (
     <div className="landing-page">
@@ -89,10 +107,11 @@ function LandingPage() {
                 </ul>
                 <li>Menandatangani kuasa pendebetan rekening.</li>
               </ul>
-              <a href={`https://api.whatsapp.com/send?phone=6281371200097&text=${encodeURIComponent(whatsappTemplateMessage)}`} 
+              <button className="register-button" onClick={() => 
+                setShowForm(true)}>Raih Keuntungan</button>
+              {/* <a href={`https://api.whatsapp.com/send?phone=6281371200097&text=${encodeURIComponent(whatsappTemplateMessage)}`} 
                  target="_blank" rel="noopener noreferrer">
-                <button className="register-button">Raih Keuntungan</button>
-              </a>
+              </a> */}
             </section>
           </div>
         </div>
@@ -107,6 +126,31 @@ function LandingPage() {
         </a>
         <img src="footer-image.png" alt="Footer" className="footer-image" />
       </footer>
+
+      {showForm && (
+        <div className="form-popup">
+          <form onSubmit={handleSubmit}>
+            <h2>Masukkan Data Diri</h2>
+            <label>
+              Nama
+              <input type="text" name="name" value={formData.name} 
+              onChange={handleInputChange} required />
+            </label>
+            <label>
+              Email
+              <input type="email" name="email" value={formData.email} 
+              onChange={handleInputChange} required />
+            </label>
+            <label>
+              Nomor Telepon (Whatsapp)
+              <input type="tel" name="phone" value={formData.phone} 
+              onChange={handleInputChange} required />
+            </label>
+            <button type="submit">Daftar Sekarang</button>
+            <button type="button" onClick={() => setShowForm(false)}>Tutup</button>
+          </form>
+        </div>
+      )}
     </div>
   );
 }
