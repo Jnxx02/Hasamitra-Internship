@@ -8,6 +8,7 @@ function LandingPage() {
     name: '',
     email: '',
     phone: '',
+    agree: false,
   });
 
   useEffect(() => {
@@ -36,8 +37,8 @@ function LandingPage() {
   const whatsappTemplateMessage = "Halo Hasamitra, saya ingin bergabung dengan Tabungan New Ariska.";
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    const { name, value, type, checked } = e.target;
+    setFormData({ ...formData, [name]: type === 'checkbox' ? checked : value });
   };
 
   const handleSubmit = (e) => {
@@ -59,6 +60,11 @@ function LandingPage() {
 
     if (!phonePattern.test(formData.phone)) {
       alert("Nomor telepon harus berupa angka.");
+      return;
+    }
+
+    if (!formData.agree) {
+      alert("Anda harus menyetujui syarat dan ketentuan serta kebijakan privasi.");
       return;
     }
 
@@ -177,15 +183,25 @@ function LandingPage() {
               />
             </label>
             <label>
-              Nomor Telepon (Whatsapp)
+              No. Telepon (Whatsapp)
               <input
                 type="tel"
                 name="phone"
                 value={formData.phone}
                 onChange={handleInputChange}
-                placeholder="ex. 08123456789"
+                placeholder="ex. 081234567890"
                 required
               />
+            </label>
+            <label className="checkbox-label">
+              <input
+                type="checkbox"
+                name="agree"
+                checked={formData.agree}
+                onChange={handleInputChange}
+                required
+              />
+              Saya menyetujui <a href="/terms" target="_blank" rel="noopener noreferrer">syarat dan ketentuan</a> serta <a href="/privacy" target="_blank" rel="noopener noreferrer">kebijakan privasi</a>.
             </label>
             <button type="submit">Daftar Sekarang</button>
             <button type="button" onClick={closeForm}>
