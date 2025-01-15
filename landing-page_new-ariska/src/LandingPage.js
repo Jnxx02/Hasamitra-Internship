@@ -8,7 +8,8 @@ function LandingPage() {
     name: '',
     email: '',
     phone: '',
-    agree: false,
+    agreeTerms: false,
+    agreePrivacy: false,
   });
 
   useEffect(() => {
@@ -63,7 +64,7 @@ function LandingPage() {
       return;
     }
 
-    if (!formData.agree) {
+    if (!formData.agreeTerms || !formData.agreePrivacy) {
       alert("Anda harus menyetujui syarat dan ketentuan serta kebijakan privasi.");
       return;
     }
@@ -196,12 +197,24 @@ function LandingPage() {
             <label className="checkbox-label">
               <input
                 type="checkbox"
-                name="agree"
-                checked={formData.agree}
+                name="agreeTerms"
+                checked={formData.agreeTerms}
                 onChange={handleInputChange}
                 required
               />
-              Saya menyetujui <a href="/terms" target="_blank" rel="noopener noreferrer">syarat dan ketentuan</a> serta <a href="/privacy" target="_blank" rel="noopener noreferrer">kebijakan privasi</a>.
+              Saya menyetujui <a href="https://hasamitra.com/syarat-ketentuan" 
+              target="_blank" rel="noopener noreferrer">Syarat dan Ketentuan</a>.
+            </label>
+            <label className="checkbox-label">
+              <input
+                type="checkbox"
+                name="agreePrivacy"
+                checked={formData.agreePrivacy}
+                onChange={handleInputChange}
+                required
+              />
+              Saya menyetujui <a href="https://hasamitra.com/kebijakan-privasi" 
+              target="_blank" rel="noopener noreferrer">Kebijakan Privasi</a>.
             </label>
             <button type="submit">Daftar Sekarang</button>
             <button type="button" onClick={closeForm}>
