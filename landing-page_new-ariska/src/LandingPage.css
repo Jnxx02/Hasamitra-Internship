@@ -260,3 +260,21 @@
       max-width: none;
     }
   }
+
+.register-button {
+  display: inline-block;
+  margin-top: 20px;
+  margin-left: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: white;
+  background-color: #dc7c34; /* Adjust color as needed */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.register-button:hover {
+  background-color: #b85e29; /* Darker shade for hover effect */
+}

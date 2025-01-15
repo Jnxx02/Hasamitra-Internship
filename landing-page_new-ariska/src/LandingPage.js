@@ -27,6 +27,8 @@ function LandingPage() {
     };
   }, []);
 
+  const whatsappTemplateMessage = "Halo Hasamitra, saya ingin membuat tabungan baru. Nama: [Nama Anda], ID: [ID Anda]";
+
   return (
     <div className="landing-page">
       <header className="header scroll-animate" ref={(el) => 
@@ -86,6 +88,10 @@ function LandingPage() {
                 </ul>
                 <li>Menandatangani kuasa pendebetan rekening</li>
               </ul>
+              <a href={`https://api.whatsapp.com/send?phone=6281371200097&text=${encodeURIComponent(whatsappTemplateMessage)}`} 
+                 target="_blank" rel="noopener noreferrer">
+                <button className="register-button">Daftar Sekarang</button>
+              </a>
             </section>
           </div>
         </div>
@@ -94,7 +100,7 @@ function LandingPage() {
         elementsRef.current.push(el)}>
         <h3>Ada Pertanyaan?</h3>
         <p>Hubungi Mica</p>
-        <a href="https://api.whatsapp.com/send?phone=6281371200097&text=Halo%20Hasamitra%20:)" 
+        <a href={`https://api.whatsapp.com/send?phone=6281371200097&text=Halo%20Hasamitra%20:)`} 
         target="_blank" rel="noopener noreferrer">
           <img src="mica.png" alt="Mica" className="contact" />
         </a>
