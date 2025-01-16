@@ -160,7 +160,7 @@ function LandingPage() {
       {showForm && (
         <div className="form-popup">
           <form onSubmit={handleSubmit}>
-            <h2>Masukkan Data Diri</h2>
+            <h2>Masukkan Data Diri Anda</h2>
             <label>
               Nama
               <input
